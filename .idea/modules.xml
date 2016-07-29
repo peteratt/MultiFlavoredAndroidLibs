@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultiFlavoredAndroidLibs.iml" filepath="$PROJECT_DIR$/MultiFlavoredAndroidLibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/applib/applib.iml" filepath="$PROJECT_DIR$/applib/applib.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylib/mylib.iml" filepath="$PROJECT_DIR$/mylib/mylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sublib1/sublib1.iml" filepath="$PROJECT_DIR$/sublib1/sublib1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sublib2/sublib2.iml" filepath="$PROJECT_DIR$/sublib2/sublib2.iml" />
     </modules>
   </component>
 </project>

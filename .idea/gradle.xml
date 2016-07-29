@@ -5,12 +5,24 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/applib" />
             <option value="$PROJECT_DIR$/mylib" />
+            <option value="$PROJECT_DIR$/sublib1" />
+            <option value="$PROJECT_DIR$/sublib2" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/applib" />
+            <option value="$PROJECT_DIR$/mylib" />
+            <option value="$PROJECT_DIR$/sublib1" />
+            <option value="$PROJECT_DIR$/sublib2" />
           </set>
         </option>
       </GradleProjectSettings>
