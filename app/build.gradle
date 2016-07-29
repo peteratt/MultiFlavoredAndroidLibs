@@ -17,6 +17,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        dev {
+            // Your dev tweaks here
+            minSdkVersion 21
+        }
+        prod {
+            // Your prod tweaks here
+            minSdkVersion 16
+        }
+        applibdev {
+            // Your dev tweaks here
+            minSdkVersion 21
+        }
+        applibprod {
+            // Your prod tweaks here
+            minSdkVersion 16
+        }
+    }
 }
 
 configurations {
@@ -24,15 +42,33 @@ configurations {
     prodDebugCompile
     devReleaseCompile
     prodReleaseCompile
+
+    applibdevDebugCompile
+    applibdevReleaseCompile
+    applibprodDebugCompile
+    applibprodReleaseCompile
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
 
-    devDebugCompile project(path: ':mylib', configuration: 'devDebug')
-    prodDebugCompile project(path: ':mylib', configuration: 'prodDebug')
+    Map<String, Dependency> customDeps = new HashMap<String, Dependency>()
 
-    devReleaseCompile project(path: ':mylib', configuration: 'devRelease')
-    prodReleaseCompile project(path: ':mylib', configuration: 'prodRelease')
+    customDeps.put("devDebugCompile", dependencies.project(path: ":mylib", configuration: "devDebug"))
+    customDeps.put("prodDebugCompile", dependencies.project(path: ":mylib", configuration: "prodDebug"))
+    customDeps.put("devReleaseCompile", dependencies.project(path: ":mylib", configuration: "devRelease"))
+    customDeps.put("prodReleaseCompile", dependencies.project(path: ":mylib", configuration: "prodRelease"))
+
+    customDeps.put("applibdevDebugCompile", dependencies.project(path: ":applib", configuration: "devDebug"))
+    customDeps.put("applibdevReleaseCompile", dependencies.project(path: ":applib", configuration: "devRelease"))
+    customDeps.put("applibprodDebugCompile", dependencies.project(path: ":applib", configuration: "prodDebug"))
+    customDeps.put("applibprodReleaseCompile", dependencies.project(path: ":applib", configuration: "prodRelease"))
+
+    configurations.all({ config ->
+        Dependency d = customDeps.get(config.name)
+        if (d != null) {
+            config.dependencies.add(d)
+        }
+    })
 }
